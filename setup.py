@@ -12,8 +12,6 @@ setuptools.setup(
     author_email='n/a',
     license='MIT',
     packages=['modules'],
-    install_requires=['os',                     
-                      ],
     long_description=long_description,
     long_description_content_type="text/markdown",
 )
