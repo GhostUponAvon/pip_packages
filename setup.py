@@ -7,7 +7,7 @@ setuptools.setup(
     name='modules',
     version='0.0.1',    
     description='Testing the package',
-    url='C:\Users\Raidon\Documents\Python code projects\Package 1 for pip\modules',
+    url='https://github.com/GhostUponAvon/pip_packages',
     author='GhostUponAvon',
     author_email='n/a',
     license='MIT',
