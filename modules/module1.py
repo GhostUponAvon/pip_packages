@@ -1,2 +1,6 @@
-def smth(text):
-    print(str(text))
+def hw():
+    print('hello world')
+    
+
+    
+test = 'hello'
