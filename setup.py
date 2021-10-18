@@ -11,7 +11,7 @@ setuptools.setup(
     author='GhostUponAvon',
     author_email='n/a',
     license='MIT',
-    packages=['module1'],
+    packages=['modules'],
     install_requires=['os',                     
                       ],
     long_description=long_description,
