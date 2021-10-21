@@ -6,7 +6,7 @@ import subprocess
 window = tk.Tk()
 window.title("File Directory Maker")
 
-#test
+#v0.1.2
 
 
 def createdir():
