@@ -57,7 +57,7 @@ def cl_log():
     log_sc_txt.configure(state='disabled')
         
 def update_app():
-     os.system('cmd /c "pip install git+https://github.com/GhostUponAvon/pip_packages')
+     os.system('update.cmd')
     
 
 
