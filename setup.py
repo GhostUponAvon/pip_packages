@@ -14,7 +14,7 @@ setuptools.setup(
     packages=['modules'],
     long_description=long_description,
     long_description_content_type="text/markdown",
-    package_data={'': ['*.cmd']}
+    package_data={'': ['*.cmd']},
     install_requires=[
         'winshell',
         'win32com'
