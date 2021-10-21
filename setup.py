@@ -16,6 +16,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     package_data={'': ['*.cmd']}
     install_requires=[
-        'winshell'
+        'winshell',
+        'win32com'
     ]
 )
