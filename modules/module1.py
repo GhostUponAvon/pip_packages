@@ -3,53 +3,40 @@ from tkinter.constants import BOTH, NW, TOP, X, Y
 import tkinter.scrolledtext as st
 import os 
 import subprocess
+
 window = tk.Tk()
 window.title("File Directory Maker")
 
-#v0.1.2
-
+#v0.1.3
 
 def createdir():
-    '''The directory creator is here'''
+    '''The directory maker is here'''
+    
     fl_path = entry.get()
     fl_tree = textb.get("1.0", tk.END)
     
-    log_sc_txt.configure(state='normal')
-    log_sc_txt.insert("1.0", fl_tree)
-    log_sc_txt.configure(state='disabled')
-    
-    print(str(fl_tree))
-    print(str(fl_path))
-    
-    
-    counter = 0
     for line in fl_tree :
-        
-        counter += 1
-        if line[0] == "-":
-            newline = line[1:-1]
-        else:
+                
+        if line[-1:]=="\n" :
             newline = line[:-1]
+        elif line[-1:]!="\n":
+            continue
 
         path = os.path.join(fl_path, newline)
 
-        if line[0] != "-" :
+        if os.path.exists(path) == "True" :
             
-            if os.path.exists(path) == "True" :
-                print("the path exists")
-                continue
+            log_sc_txt.configure(state='normal')
+            log_sc_txt.insert("1.0", f'The Following Path Already Exists: {path}')
+            log_sc_txt.configure(state='disabled')
             
-            elif os.path.exists(path) == "False" :
-                
-                os.makedirs(path)
-                print(f'made file directory {path}')
-
-        elif line[0] == "-" :
-            try:
-                print('smth')
-            except OSError.args :
-                print("error")
-
+        elif os.path.exists(path) == "False" :
+            
+            os.makedirs(path)
+            log_sc_txt.configure(state='normal')
+            log_sc_txt.insert("1.0", f'Created Directory {path}')
+            log_sc_txt.configure(state='disabled')
+            
 def cl_log():
     '''clears the currently logged label contents'''
     log_sc_txt.configure(state='normal')
@@ -148,29 +135,20 @@ textb = tk.Text(
     height=25
 )
 
-
-
-
 #menu top bar
 menu = tk.Menu(window)
 window.config(menu=menu)
 filemenu = tk.Menu(menu)
 editmenu = tk.Menu(menu)
 helpmenu = tk.Menu(menu)
-
 menu.add_cascade(label="File", menu=filemenu)
 filemenu.add_command(label="hello i do nothing")
-
 menu.add_cascade(label="Edit", menu=editmenu)
 editmenu.add_command(label="Find Word")
-
 menu.add_cascade(label="Help", menu=helpmenu)
 helpmenu.add_command(label="Update", command=update_app)
 
-
-
-
-
+#packaging
 log_sc_txt.configure(state='disabled')
 log_sc_txt.pack(pady=3, padx=3, fill=BOTH)
 clear_log.pack(side=tk.LEFT)
@@ -180,22 +158,9 @@ button.pack(side=tk.TOP, fill=X)
 log_frame.pack(side=tk.TOP, fill=tk.BOTH)
 log2_frame.pack(fill=tk.BOTH)
 textb.pack()
-entry.insert(0, "Directory name")
-
+entry.insert(0, "Parent Directory Name")
 
 dir_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 dir_txt_frame.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 
-
-
-
-
 window.mainloop()
-
-
-
-
-
-
-
-
