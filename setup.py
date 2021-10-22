@@ -11,7 +11,7 @@ setuptools.setup(
     author='GhostUponAvon',
     author_email='n/a',
     license='MIT',
-    packages=['modules'],
+    packages=['directory-maker'],
     long_description=long_description,
     long_description_content_type="text/markdown",
     package_data={'': ['*.cmd']}    
