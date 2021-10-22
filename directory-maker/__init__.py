@@ -2,5 +2,5 @@
 
 _version_ = "v0.1.3"
 _author_ = "GhostUponAvon"
-_credits_ = "Visual Studio Code"
+_credits_ = "Python"
 
