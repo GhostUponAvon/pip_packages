@@ -4,7 +4,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name='modules',
+    name='directory-maker',
     version='0.1.3',    
     description='Testing the package',
     url='https://github.com/GhostUponAvon/pip_packages',
