@@ -3,7 +3,7 @@ from tkinter.constants import BOTH, NW, TOP, X, Y
 import tkinter.scrolledtext as st
 import os 
 import subprocess
-
+from datetime import datetime
 window = tk.Tk()
 window.title("File Directory Maker")
 
@@ -14,29 +14,29 @@ def createdir():
     
     fl_path = entry.get()
     fl_tree = textb.get("1.0", tk.END)
+    print(fl_tree)
     
-    for line in fl_tree :
-                
-        if line[-1:]=="\n" :
-            newline = line[:-1]
-        elif line[-1:]!="\n":
+    box = []
+    tempvar = ''
+    for letter in fl_tree :
+        print(letter)
+        if letter=="\n" :
+            box.append(tempvar)
+            tempvar = ''
             continue
+        elif letter!="\n":
+            tempvar = (tempvar + letter)
 
-        path = os.path.join(fl_path, newline)
-
-        if os.path.exists(path) == "True" :
-            
-            log_sc_txt.configure(state='normal')
-            log_sc_txt.insert("1.0", f'The Following Path Already Exists: {path}')
-            log_sc_txt.configure(state='disabled')
-            
-        elif os.path.exists(path) == "False" :
-            
+    for thing in box :
+        path = os.path.join(fl_path, thing)
+        if not os.path.exists(path) : 
+            thetime = datetime.now()
             os.makedirs(path)
             log_sc_txt.configure(state='normal')
-            log_sc_txt.insert("1.0", f'Created Directory {path}')
+            log_sc_txt.insert("1.0", f'| Created Directory {path} at {thetime} |')
             log_sc_txt.configure(state='disabled')
-            
+
+
 def cl_log():
     '''clears the currently logged label contents'''
     log_sc_txt.configure(state='normal')
@@ -46,6 +46,13 @@ def cl_log():
 def update_app():
      os.system('update.cmd')
     
+def log_to_file():
+    logfile = open("logfile.txt", "a")
+    logtext = log_sc_txt.get("1.0", tk.END)
+    timestamp = datetime.now()    
+    L = ['_________\n', f'{logtext}\n', f'Logged at {timestamp}\n', '_______\n']
+    logfile.writelines(L) 
+    logfile.close()
 
 
 dir_frame = tk.Frame(
@@ -119,7 +126,8 @@ backup_log = tk.Button(
     width=25,
     height=2,
     bg="blue",
-    fg="white"
+    fg="white",
+    command=log_to_file
 )
 
 entry = tk.Entry(
