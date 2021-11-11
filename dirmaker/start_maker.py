@@ -145,13 +145,7 @@ textb = tk.Text(
 #menu top bar
 menu = tk.Menu(window)
 window.config(menu=menu)
-filemenu = tk.Menu(menu)
-editmenu = tk.Menu(menu)
 helpmenu = tk.Menu(menu)
-menu.add_cascade(label="File", menu=filemenu)
-filemenu.add_command(label="hello i do nothing")
-menu.add_cascade(label="Edit", menu=editmenu)
-editmenu.add_command(label="Find Word")
 menu.add_cascade(label="Help", menu=helpmenu)
 helpmenu.add_command(label="Update", command=update_app)
 
