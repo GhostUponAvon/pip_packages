@@ -7,7 +7,6 @@ from datetime import datetime
 window = tk.Tk()
 window.title("File Directory Maker")
 
-#v0.1.3
 
 def createdir():
     '''The directory maker is here'''
