@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name='dirmaker',
-    version='0.1.8',    
+    version='0.1.9',    
     description='Testing the package',
     url='https://github.com/GhostUponAvon/pip_packages',
     author='GhostUponAvon',
