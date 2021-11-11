@@ -18,7 +18,7 @@ target = path_w_ext
 wDir = path2                 
 
 
-icon = path_w_ext    #.cmd
+icon = "icon.ico"
 
 
 shell = Dispatch('WScript.Shell') #dunno what this does
