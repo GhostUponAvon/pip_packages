@@ -14,5 +14,5 @@ setuptools.setup(
     packages=['dirmaker'],
     long_description=long_description,
     long_description_content_type="text/markdown",
-    package_data={'': ['*.cmd']}    
+    package_data={'': ['*.cmd', '*.ico']}    
 )
